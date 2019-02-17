@@ -1,0 +1,9 @@
+#endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://eu1.prisma.sh/el-yakub-9b79d1/mmmwwwaaayyyy-ss/dev
+datamodel: datamodel.graphql
+# secret: ${env:PRISMA_SECRET}
+hooks:
+  post-deploy:
+    - echo "Deployment finished"
+    - graphql get-schema -p prisma
+    - graphql prepare
